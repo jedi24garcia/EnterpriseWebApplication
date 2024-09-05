@@ -25,3 +25,4 @@ class HostDetailView(DetailView):
     model = Host
     template_name = 'stays/host_detail.html'
     context_object_name = 'host'
+

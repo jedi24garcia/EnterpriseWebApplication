@@ -9,3 +9,4 @@ urlpatterns = [
     path('hosts/', HostListView.as_view(), name='host_list'),
     path('hosts/<int:pk>', HostDetailView.as_view(), name='host_detail'),
 ]
+
