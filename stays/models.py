@@ -15,14 +15,17 @@ class Host(models.Model):
         (OTHER, "Other")
     ]
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+  
     gender = models.CharField(
         max_length=2,
         choices=GENDER_CHOICES,
         default=OTHER,
+        null=True
     )
     rating = models.IntegerField(blank=True, null=True)
-    superhost = models.BooleanField()
+    
+    superhost = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f'{self.first_name}, {self.last_name}'

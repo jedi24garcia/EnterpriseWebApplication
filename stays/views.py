@@ -18,7 +18,7 @@ class StayDetailView(DetailView):
 class HostListView(ListView):
     model = Host
     template_name = 'stays/host_list.html'
-    context_object_name = 'hosts'
+    context_object_name = 'hosts_'
 
 # Detail view for hosts
 class HostDetailView(DetailView):
