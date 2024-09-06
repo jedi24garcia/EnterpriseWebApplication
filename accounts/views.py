@@ -13,9 +13,9 @@ def UserLogin(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
-            if user:
+            if user is not None:
                 login(request, user)
-                return redirect('home')  # Redirect to home after login
+                return redirect('base')  # Redirect to home after login
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
@@ -27,7 +27,7 @@ def UserSignUp(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')  # Redirect to home after signup
+            return redirect('base')  # Redirect to home after signup
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

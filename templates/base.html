@@ -8,18 +8,27 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="main-header">
       <h1 class="header-title">skybnb</h1>
       <div class="search-container">
         <form action="{% url 'search' %}" method="get">
           <input type="text" name="q" placeholder="Search for listings" required>
           <button type="submit">Search</button>
         </form>
-      </div>
-      <div>
-        <hr>
-      </div>
+      </div>  
+      <div class="authenticate">
+        {% if user.is_authenticated %}
+          <span>Hello, {{ user.username }}!</span>
+          <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="login-link">Login</a>
+          <a href="{% url 'signup' %}" class="login-link">Sign Up</a>
+        {% endif %}
+        </div>
     </header>
+    <div>
+      <hr>
+    </div> 
     <h2>Location</h2>
     <div class="location-list">
       <h3>
