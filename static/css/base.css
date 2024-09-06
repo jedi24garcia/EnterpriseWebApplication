@@ -1,3 +1,40 @@
-header h1 {
+.header-title {
+  margin-left: 50px; 
+  color: blue;
+
+}
+
+h2 {
   text-align: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; 
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 500px;
+}
+
+.search-container button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+hr {
+  margin-top: 50px;
 }
