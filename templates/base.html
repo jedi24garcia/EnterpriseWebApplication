@@ -1,105 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skybnb</title>
+  {% load static %}
+  <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
-    <header class="main-header">
+  <header class="main-header">
       <h1 class="header-title">skybnb</h1>
       <div class="search-container">
-        <form action="{% url 'search' %}" method="get">
-          <input type="text" name="q" placeholder="Search for listings" required>
-          <button type="submit">Search</button>
-        </form>
+          <form action="{% url 'search' %}" method="get">
+              <input type="text" name="q" placeholder="Search for listings" required>
+              <button type="submit">Search</button>
+          </form>
       </div>  
       <div class="authenticate">
-        {% if user.is_authenticated %}
-          <span>Hello, {{ user.username }}!</span>
-          <a href="{% url 'logout' %}" class="logout-link">Logout</a>
-        {% else %}
-          <a href="{% url 'login' %}" class="login-link">Login</a>
-          <a href="{% url 'signup' %}" class="login-link">Sign Up</a>
-        {% endif %}
-        </div>
-    </header>
-    <div>
-      <hr>
-    </div> 
-    <h2>Location</h2>
-    <div class="location-list">
-      <h3>
-        <span>Auckland</span>
-        <span>Hamilton</span>
-        <span>Wellington</span>
-        <span>Chistchurch</span>
-        <span>Queenstown</span>
-      </h3>
-    </div>
-    <div class="image-row">
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+          {% if user.is_authenticated %}
+              <span>Hello, {{ user.username }}!</span>
+              <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+          {% else %}
+              <a href="{% url 'login' %}" class="login-link">Login</a>
+              <a href="{% url 'signup' %}" class="login-link">Sign Up</a>
+          {% endif %}
       </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-    </div>
-    <div class="location-list">
-      <h3>
-        <span>Nearby</span>
-        <span>Beaches</span>
-        <span>City Centre</span>
-        <span>Farms</span>
-        <span>National Park</span>
-      </h3>
-    </div>
-    <div class="image-row">
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-      <div class="image-item">
-        <img src="{% static 'property.webp' %}" alt="Property Image">
-        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
-      </div>
-    </div>
-    <hr>
-    <footer>
+  </header>
+
+  <div>
+      {% block content %}
+      {% endblock %}
+  </div>
+
+  <footer>
       <div class="text1">
-        &copy; 2024 Skybnb, Inc.
+          &copy; 2024 Skybnb, Inc.
       </div>
       <div class="text2">
-        Privacy Terms
+          Privacy Terms
       </div>
-    </footer>
+  </footer>
 </body>
 </html>

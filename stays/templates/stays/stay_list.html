@@ -1,7 +1,77 @@
 {% extends 'base.html' %}
-
-{% block title %}Stay List{% endblock %}
+{% load static %}
 
 {% block content %}
+<div>
+    <hr>
+</div> 
+
 <h2>Location</h2>
+<div class="location-list">
+    <h3>
+        <span>Auckland</span>
+        <span>Hamilton</span>
+        <span>Wellington</span>
+        <span>Christchurch</span>
+        <span>Queenstown</span>
+    </h3>
+    </div>
+
+    <div class="image-row">
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    </div>
+
+    <div class="location-list">
+    <h3>
+        <span>Nearby</span>
+        <span>Beaches</span>
+        <span>City Centre</span>
+        <span>Farms</span>
+        <span>National Park</span>
+    </h3>
+    </div>
+
+    <div class="image-row">
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+    <div class="image-item">
+        <img src="{% static 'property.webp' %}" alt="Property Image">
+        <p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p>
+    </div>
+</div>
+
+<hr>
 {% endblock %}
