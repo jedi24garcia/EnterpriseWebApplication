@@ -1,4 +1,10 @@
 /* General styles */
+* {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -11,13 +17,29 @@
   color: blue;
 }
 
+.header-title img {
+
+  width: 200px;
+  padding: 10px;
+
+}
+
+.header-title a {
+  text-decoration: none;
+  color: blue;
+}
+
 h2 {
   text-align: center;
 }
 
 /* Home Page */
+h2 {
+  padding-top: 20px;
+}
 .location-list h3 {
   text-align: center;
+  padding: 30px;
 }
 
 .authenticate {
@@ -26,9 +48,24 @@ h2 {
   margin-right: 50px;
 }
 
+.authenticate a{
+  text-decoration: none;
+  color: black;
+}
+
 .location-list h3 span {
   display: inline-block;
   margin: 0 20px;
+}
+
+.card_container {
+  /* background-color: grey; */
+display: flex;
+
+}
+
+.card_box {
+  margin: auto;
 }
 
 .image-row {
@@ -36,12 +73,25 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: auto;
+
+
 }
 
 .image-item {
-  flex: 1 1 18%; 
-  max-width: 18%; 
+  /* flex: 1 1 18%;  */
+  /* max-width: 18%;  */
   text-align: center; 
+  padding: 12px;
+  width: 300px;
+  height: 260px;
+  /* background-color: grey; */
+  display: flex;
+}
+
+.image-item a{
+  text-decoration: none;
+  color: black;
 }
 
 .image-item img {
@@ -55,6 +105,10 @@ h2 {
   margin: 5px 0 0;
 }
 
+.image-item {
+  transition:  0.3s;
+}
+
 .image-item:hover {
   transform: scale(1.2);
 }
@@ -62,8 +116,9 @@ h2 {
 footer {
   display: flex;
   justify-content: space-between;
-  background-color: gray;
+  background-color: rgb(235, 235, 235);
   padding: 40px;
+  margin-top: 50px;
 }
 
 .search-container {
@@ -96,3 +151,63 @@ footer {
 hr {
   margin-top: 50px;
 }
+
+
+/* login_signup page */
+
+.form_container {
+  padding: 100px 50px;
+  display: flex;
+}
+
+.input_container{
+  text-align: center;
+}
+
+.box_container {
+    margin: auto;
+    /* padding: 80px; */
+    border: 1px solid rgb(145, 145, 145);
+    /* background-color: grey; */
+    border-radius: 30px;
+  width: 500px;
+  height: 460px;
+
+}
+
+.box_container a{
+  color: black;
+}
+
+.box_container h1{
+margin-bottom: 50px;
+text-align: center;
+padding-top: 50px;
+}
+
+.box_container h3{
+  font-size: 16px;
+  text-align: center;
+  }
+
+.box_container button{
+  display: block;
+  background-color:  #007BFF;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  border-radius: 30px;
+  color: white;
+  border: none;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  }
+
+  .input_field {
+    padding-top:10px;
+
+  }
+
+  input{
+    border : 1px solid rgb(196, 196, 196);
+  }

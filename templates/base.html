@@ -9,7 +9,10 @@
 </head>
 <body>
   <header class="main-header">
-      <h1 class="header-title">skybnb</h1>
+      <h1 class="header-title"><a href="{% url 'home' %}">
+        <img src="{% static 'logo.png' %}" alt="Logo Image">
+        <!-- skybnb -->
+        </a></h1>
       <div class="search-container">
           <form action="{% url 'search' %}" method="get">
               <input type="text" name="q" placeholder="Search for listings" required>
@@ -26,7 +29,9 @@
           {% endif %}
       </div>
   </header>
-
+    <div>
+        <hr>
+    </div> 
   <div>
       {% block content %}
       {% endblock %}
