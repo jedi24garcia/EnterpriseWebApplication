@@ -1,7 +1,24 @@
-<h1>Login</h1>
-<form method='post'>
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-  <a href="{% url 'signup' %}">Don't have an account? Create here.</a>
-</form>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form_container">
+  <div class="box_container">
+    <h1>Login</h1>
+    <form method='post'>
+      {% csrf_token %}
+      <!-- {{ form.as_p }} -->
+        <div class="input_container">
+          <div class="input_field">  
+            Username: {{form.username}}
+          </div>
+          <div class="input_field">  
+            Password: {{form.password}}
+          </div>
+        </div>
+      <button type="submit">Log In</button>
+      <h3><a href="{% url 'signup' %}">Don't have an account? Create here.</a></h3>
+    </form>
+  </div>
+</div>
+{% endblock %}
