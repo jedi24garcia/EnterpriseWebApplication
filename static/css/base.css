@@ -211,3 +211,58 @@ padding-top: 50px;
   input{
     border : 1px solid rgb(196, 196, 196);
   }
+
+
+
+/* Stay Detail */
+
+#stay-detail {
+  width: 90%;
+  margin: auto;
+}
+
+#stay-detail div h2 {
+  text-align: left;
+}
+
+.stay-section-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40vh;
+  gap: 20px
+}
+
+.stay-images {
+  height: 100%;
+  width: 55%;
+  border: solid black 1px;
+}
+
+.stay-section-1-info {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stay-section-1-info button {
+  height: 50px;
+  border-radius: 50px;
+}
+
+.stay-section-1-info h2 {
+  padding-top: 0;
+} 
+
+.stay-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stay-features div {
+  display: flex;
+  gap: 40px;
+}

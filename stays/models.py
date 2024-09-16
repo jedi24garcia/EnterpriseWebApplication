@@ -4,31 +4,31 @@ from django.contrib.auth.models import User
 # Create your models here.
 # Host model
 class Host(models.Model):
-    MALE = 'M'
-    FEMALE = 'F'
-    NON_BINARY = 'NB'
-    OTHER = 'O'
-    GENDER_CHOICES = [
-        (MALE, "Male"),
-        (FEMALE, "Female"),
-        (NON_BINARY, "Non-Binary"),
-        (OTHER, "Other")
-    ]
+    # MALE = 'M'
+    # FEMALE = 'F'
+    # NON_BINARY = 'NB'
+    # OTHER = 'O'
+    # GENDER_CHOICES = [
+    #     (MALE, "Male"),
+    #     (FEMALE, "Female"),
+    #     (NON_BINARY, "Non-Binary"),
+    #     (OTHER, "Other")
+    # ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-  
-    gender = models.CharField(
-        max_length=2,
-        choices=GENDER_CHOICES,
-        default=OTHER,
-        null=True
-    )
-    rating = models.IntegerField(blank=True, null=True)
     
-    superhost = models.BooleanField(default=False)
+    # gender = models.CharField(
+    #     max_length=2,
+    #     choices=GENDER_CHOICES,
+    #     default=OTHER,
+    #     null=True
+    # )
+    # rating = models.IntegerField(blank=True, null=True)
+    
+    # superhost = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return f'{self.first_name}, {self.last_name}'
+        return f'{self.user.first_name}, {self.user.last_name}'
     
 # Stays model
 class Stay(models.Model):
