@@ -14,7 +14,18 @@
     </h3>
     </div>
     <div class="card_container">
+
         <div class="image-row">
+            {% for stay in stays %}
+                <div class="image-item">
+                    <a href="{% url 'stay_detail' stay.pk %}">
+                        <div class="card_box">
+                            <img src="{% static 'property.webp' %}">
+                            <p>{{ stay.title }}<br>{{ stay.location }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
             <div class="image-item">
                 <div class="card_box">
                     <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
