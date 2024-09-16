@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import LoginForm, SignUpForm
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from .forms import LoginForm, SignUpForm, ProfileForm
+from .models import Profile
+from django import forms
 
 # Create your views here.
 
@@ -31,3 +35,17 @@ def UserSignUp(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def UserProfile(request):
+    if request.user.is_authenticated:
+        current_user = Profile.objects.get(user__id=request.user.id)
+        form = ProfileForm(request.POST or None, instance =current_user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your profile has been updated")
+            return redirect('home')
+        return render (request, "profile.html", {'form': form})
+    else:
+        messages.success(request, "You must be logged in")
+        return redirect('home')

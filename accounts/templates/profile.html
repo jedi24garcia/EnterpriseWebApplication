@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form_container">
+  <div class="box_container">
+    <h1>Profile</h1>
+    <h3>User Name : {{ user.username }}</h3>
+    <h3>First Name : {{ user.first_name }}</h3>
+    <h3>Last Name : {{ user.last_name }}</h3>
+
+
+    <form method='post' action="{ % url 'user_profile' %}">
+      {% csrf_token %}
+      <!-- {{ form.as_p }} -->
+        <div class="input_container">
+          <div class="input_field">  
+            Phone Number: {{form.phone_number}}
+          </div>
+          <div class="input_field">  
+            Email Address: {{form.email_address}}
+          </div>
+        </div>
+      <button type="submit">Edit</button>
+      <!-- <h3><a href="{% url 'signup' %}">Don't have an account? Create here.</a></h3> -->
+    </form>
+  </div>
+</div>
+{% endblock %}
