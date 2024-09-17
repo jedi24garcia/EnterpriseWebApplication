@@ -11,21 +11,21 @@
         </div>
         <div class="stay-section-1-info">
             <div>
-                <h2>Modern room in Auckland CBD</h2>
-                <p>$80 per night</p>
+                <h2>{{ stay.title }}</h2>
+                <p>{{ stay.location }}</p>
                 <p>10/08/2024 - 20/08/2024 (10 days)</p>
-                <p>4 Guests</p>
+                <p>{{ stay.guests }} guests</p>
             </div>
             <div class="stay-price">
                 <h3>Total Price</h3>
-                <h3>$800</h3>
+                <h3>${{ stay.price }}</h3>
             </div>
             <button>Reserve</button>
         </div>
     </div>
     <div class="stay-description">
         <h2>Description</h2>
-        <p>Welcome to our city view room where you can kick back and relax in this calm, stylish space.</p>
+        <p>{{ stay.description }}</p>
     </div>
     <div class="stay-features">
         <h2>Features</h2>
