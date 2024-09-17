@@ -2,17 +2,46 @@
 {% load static %}
 
 {% block content %}
-
-<h2>Location</h2>
-<div class="location-list">
-    <h3>
-        <span>Auckland</span>
-        <span>Hamilton</span>
-        <span>Wellington</span>
-        <span>Christchurch</span>
-        <span>Queenstown</span>
-    </h3>
+<div class="list_title">
+    <h2>Place List</h2>
+</div>
+<div class="property_box">
+<!-- <h2>Propery List</h2> -->
+    <div class="location-list">
+        <h3>
+            <!-- <span>Auckland</span>
+            <span>Hamilton</span> -->
+            <span>Wellington</span>
+            <!-- <span>Christchurch</span>
+            <span>Queenstown</span> -->
+        </h3>
     </div>
+    <div class="card_container">
+        <div class="image-row">
+            {% for stay in stays %}
+                <div class="image-item">
+                    <a href="{% url 'stay_detail' stay.pk %}">
+                        <div class="card_box">
+                            <img src="{% static 'property.webp' %}">
+                            <p>{{ stay.title }}<br>{{ stay.location }}</p>
+                        </div>
+                    </a>
+                </div>
+                
+            {% endfor %}           
+        </div>
+    </div>
+
+    <!-- <div class="location-list">
+    <h3>
+        <span>Nearby</span>
+        <span>Beaches</span>
+        <span>City Centre</span>
+        <span>Farms</span>
+        <span>National Park</span>
+    </h3>
+    </div> -->
+
     <div class="card_container">
 
         <div class="image-row">
@@ -25,85 +54,11 @@
                         </div>
                     </a>
                 </div>
-            {% endfor %}
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="location-list">
-    <h3>
-        <span>Nearby</span>
-        <span>Beaches</span>
-        <span>City Centre</span>
-        <span>Farms</span>
-        <span>National Park</span>
-    </h3>
-    </div>
-
-    <div class="card_container">
-        <div class="image-row">
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
-            </div>
-            <div class="image-item">
-                <div class="card_box">
-                    <a href=""><img src="{% static 'property.webp' %}" alt="Property Image"></a>
-                    <a href=""><p>Modern room in Auckland CBD<br>Auckland CBD, Auckland</p></a>
-                </div>
+                
+            {% endfor %}           
             </div>
         </div>
     </div>
 </div>
-
 
 {% endblock %}
