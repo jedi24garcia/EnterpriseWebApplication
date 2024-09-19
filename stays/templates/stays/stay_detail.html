@@ -13,14 +13,17 @@
             <div>
                 <h2>{{ stay.title }}</h2>
                 <p>{{ stay.location }}</p>
-                <p>10/08/2024 - 20/08/2024 (10 days)</p>
                 <p>{{ stay.guests }} guests</p>
+                <form method ="post" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Reserve</button>
+                </form>
             </div>
             <div class="stay-price">
                 <h3>Total Price</h3>
                 <h3>${{ stay.price }}</h3>
             </div>
-            <button>Reserve</button>
         </div>
     </div>
     <div class="stay-description">

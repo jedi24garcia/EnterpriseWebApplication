@@ -6,11 +6,12 @@ from stays.models import Stay
 # Booking model
 
 class Booking(models.Model):
+    stay = models.ForeignKey(Stay, on_delete=models.PROTECT, null=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
-    property = models.ForeignKey(Stay, on_delete=models.PROTECT, null=True)
     checkin = models.DateField()
     checkout = models.DateField()
+    
 
     def __str__(self) -> str:
-        return self.property.title
+        return f'{self.stay.title}, reservation for {self.user.last_name}'
     
