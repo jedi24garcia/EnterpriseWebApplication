@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form_container">
+    <div class="box_container">
+        <h1>Make a booking</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input_container">
+                <div class="input_field">
+                    Username: {{ form.user }}
+                </div>
+                <div class="input_field">
+                    Property: {{ form.property }}
+                </div>
+                <div class="input_field">
+                    Checkin: {{ form.checkin }}
+                </div>
+                <div class="input_field">
+                    Checkout: {{ form.checkout }}
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+            <h3><a href="{% url 'home' %}">Not Now</a></h3>
+        </form>
+    </div>
+</div>
+{% endblock %}

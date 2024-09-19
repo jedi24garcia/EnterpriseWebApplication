@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Stay Details{% endblock %}
+
+{% block content %}
+<div id="stay-detail">
+    <h3 class="location">Exact location provided after booking</h3>
+    <div class="stay-section-1">
+        <div class="stay-images">
+            IMAGE FILLER
+        </div>
+        <div class="stay-section-1-info">
+            <div>
+                <h2>{{ stay.title }}</h2>
+                <p>{{ stay.location }}</p>
+                <p>10/08/2024 - 20/08/2024 (10 days)</p>
+                <p>{{ stay.guests }} guests</p>
+            </div>
+            <div class="stay-price">
+                <h3>Total Price</h3>
+                <h3>${{ stay.price }}</h3>
+            </div>
+            <button><a href="{% url 'booking_form' %}">Reserve</a></button>
+        </div>
+    </div>
+    <div class="stay-description">
+        <h2>Description</h2>
+        <p>{{ stay.description }}</p>
+    </div>
+    <div class="stay-features">
+        <h2>Features</h2>
+        <div>
+            <h2>Free Wifi</h2>
+            <h2>Disney+</h2>
+            <h2>City View</h2>
+            <h2>Clean and Modern</h2>
+        </div>
+    </div>
+    <div class="stay-host-details">
+        <div class="image">
+            Image Filler
+        </div>
+        <div class="stay-host-info">
+            <h2>Hosted by James and Anne</h2>
+            <p>3 years hosting</p>
+            <p>Experienced hosts who are committed to providing great stays for guests</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
