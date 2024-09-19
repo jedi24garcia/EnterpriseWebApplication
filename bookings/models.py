@@ -11,6 +11,7 @@ class Booking(models.Model):
     checkin = models.DateField()
     checkout = models.DateField()
     
+    
 
     def __str__(self) -> str:
         return f'{self.stay.title}, reservation for {self.user.last_name}'
