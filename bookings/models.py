@@ -8,8 +8,8 @@ from stays.models import Stay
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     property = models.ForeignKey(Stay, on_delete=models.PROTECT, null=True)
-    checkin = models.DateField()
-    checkout = models.DateField()
+    checkin = models.DateField(null=True)
+    checkout = models.DateField(null=True,)
 
     def __str__(self) -> str:
         return self.property.title
