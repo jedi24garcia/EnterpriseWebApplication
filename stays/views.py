@@ -1,8 +1,11 @@
 from typing import Any
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from .models import Stay, Host
 from bookings.forms import BookingForm
+from django.http import HttpResponseForbidden
 
 # List view for stays
 class StayListView(ListView):
@@ -35,6 +38,27 @@ class StayDetailView(DetailView):
             return redirect('home')
         
         #if form is invalid
+
+# Update stay
+class StayUpdateView(UpdateView):
+    model = Stay
+    fields = ['title', 'price', 'location', 'guests', 'bedrooms', 'bathrooms', 'features', 'description', 'address']
+    template_name = 'stays/stay_form.html'
+    success_url = '/'
+    
+    # def get_object(self, queryset=None):
+    #     stay = super().get_object(queryset)
+    #     user = self.request.user
+    #     if stay.host.user == user:
+    #         return stay
+    #     else:
+    #         raise HttpResponseForbidden("You can not edit this stay.")
+        
+# Delete View
+class StayDeleteView(DeleteView):
+    model = Stay
+    success_url = '/'
+    template_name = 'stays/stay_confirm_delete.html'
 
 # List view for hosts
 class HostListView(ListView):

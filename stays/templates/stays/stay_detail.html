@@ -4,6 +4,13 @@
 
 {% block content %}
 <div id="stay-detail">
+    {% if stay.host.user == user %}
+        <div class="loggedin-user-stay">
+            <h2>EDIT OR DELETE YOUR STAY</h2>
+            <a href="{% url 'stay_edit' stay.pk %}">Edit Stay</a>
+            <a href="{% url 'stay_delete' stay.pk %}">Delete Stay</a>
+        </div>
+    {% endif %}
     <h3 class="location">Exact location provided after booking</h3>
     <div class="stay-section-1">
         <div class="stay-images">

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>
+            {% if form.instance.pk %}
+                Edit Stay: {{ form.instance.title }}
+            {% else %}
+                Add a New stay
+            {% endif %}
+        </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+{% endblock %}
