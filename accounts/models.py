@@ -34,7 +34,7 @@ def create_profile(sender, instance, created, **kwargs):
         user_profile = Profile(user=instance)
         user_profile.save()
        
-Automate the profile thing
+#Automate the profile thing
 post_save.connect(create_profile, sender=User)
 
 
