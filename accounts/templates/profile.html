@@ -2,28 +2,93 @@
 {% load static %}
 
 {% block content %}
-<div class="form_container">
-  <div class="box_container">
-    <h1>Profile</h1>
-    <h3>User Name : {{ user.username }}</h3>
-    <h3>First Name : {{ user.first_name }}</h3>
-    <h3>Last Name : {{ user.last_name }}</h3>
-
-
-    <form method='post' action="{ % url 'user_profile' %}">
-      {% csrf_token %}
-      <!-- {{ form.as_p }} -->
-        <div class="input_container">
-          <div class="input_field">  
-            Phone Number: {{form.phone_number}}
+<div class="profile_container0">
+  <form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+      <div class="profile_info_container">
+          <div class="right-info">
+            <h1>Profile</h1>
+            <div class ="image_box_container">
+              <div class="image_box">
+                <img src="{{ user.profile.profile_pic.url }}">
+              </div>
+              <div class="edit_info_box">
+                <div class="edit_info_box">
+                    <fieldset class="form-group">
+                        <div class="form">{{ p_form }}</div>
+                    </fieldset>                
+                </div>
+                <button type="submit">Edit</button>
+            </div>
+            </div>
           </div>
-          <div class="input_field">  
-            Email Address: {{form.email_address}}
-          </div>
+      
+    
+            <div class="left-info">
+              <div class="left-info-left">
+                <h3>User Name</h3>
+                <h3>Name</h3>
+                <div class="edit_info_box">
+                  <div class="input_field">  
+                    Phone Number
+                  </div>
+                  <div class="input_field">  
+                    Email Address
+                  </div>
+                  <br>
+                  <div class="input_field2">  
+                    Listing
+                  </div>
+                </div>
+              </div>
+              <div class="left-info-right">
+                <h3> {{ user.username }}</h3>
+                <h3> {{ user.first_name }} {{ user.last_name }}</h3>
+                <form method='POST' enctype="multipart/form-data">
+                    {% csrf_token %}
+                  <div class="edit_info_box">
+                      <fieldset class="form-group">
+                          <div class="form">{{ u_form }}</div>
+
+                      </fieldset>
+                      <div class="button_box">
+                        <button type="submit">Edit</button>
+                        <button type="submit">Edit</button>
+                      </div>
+                  </div>
+                </form>
+
+                    <br>
+                    <div class="input_field3"> 
+                      <a href="{% url 'host_profile' %}"><div class="button"> <p> Register as a host</p> </div></a>
+                    </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="profile_container">
+      <div class="profile_info_container2">
+        <div class="list_container">
+          <h2>Your Acommodation Reservations</h2>
+          <ul>
+            <li>Current room in Wellington CBD</li>
+            <li>Guest suite in Wellington CBD</li>
+          </ul>
         </div>
-      <button type="submit">Edit</button>
-      <!-- <h3><a href="{% url 'signup' %}">Don't have an account? Create here.</a></h3> -->
-    </form>
-  </div>
+      </div>
+    </div>
+    <div class="profile_container2">
+      <div class="profile_info_container2">
+        <div class="list_container">
+          <h2>Your Travel Reservations</h2>
+          <ul>
+            <li>Aprtment in Wellington CBD</li>
+            <li>Guesthouse in Wellington CBD</li>
+            <li>Hotel in Wellington CBD</li>
+          </ul>
+        </div>
+      </div>
+</form>
 </div>
 {% endblock %}

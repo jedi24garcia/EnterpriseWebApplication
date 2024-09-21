@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from .models import Profile
 
@@ -25,3 +25,24 @@ class ProfileForm(forms.ModelForm):
     class Meta:
       model = Profile
       fields =( 'phone_number', 'email_address')
+
+
+class UserUpdateForm(forms.ModelForm):
+
+    phone_number = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Phone Number'}), required=False)
+    email_address = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Email Address'}), required=False)
+    class Meta:
+      model = Profile
+      fields =( 'phone_number', 'email_address')
+
+
+
+class ProfileUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields =['profile_pic']
+
+
+
+

@@ -10,17 +10,20 @@ class Profile(models.Model):
     date_modified = models.DateTimeField(User, auto_now=True)
     phone_number = models.CharField(max_length=20, blank=True)
     email_address = models.CharField(max_length=50, blank=True)
+    profile_pic = models.ImageField(default='default.jpg', upload_to="profile_pics")
+        
 
     def __str__(self):
         return self.user.username
 
-# Ceate a user Profile by default when user signs up
+#Ceate a user Profile by default when user signs up
 def create_profile(sender, instance, created, **kwargs):
     if created:
         user_profile = Profile(user=instance)
         user_profile.save()
-        
-# Automate the profile thing
+       
+#Automate the profile thing
 post_save.connect(create_profile, sender=User)
+
 
 
