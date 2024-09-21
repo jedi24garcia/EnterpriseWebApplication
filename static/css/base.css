@@ -6,12 +6,7 @@
 
 
 .main-header {
-  width: 1800px;
   margin: auto;
-}
-
-.header_container {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,16 +138,9 @@ display: flex;
 
 footer {
   background-color: rgb(235, 235, 235);
-}
-.footer_box{
-  width: 1600px;
-  margin: auto;
-  
-}
-footer .footer_container {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 80px;
   margin-top: 50px;
 }
 
