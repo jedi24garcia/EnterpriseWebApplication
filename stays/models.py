@@ -4,6 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 # Host model
 class Host(models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    hosting_years = models.IntegerField(null =True)
+    about = models.TextField(max_length=255, blank =True)
+    host_pic = models.ImageField(default='default.jpg', upload_to="host_pics")
+
     # MALE = 'M'
     # FEMALE = 'F'
     # NON_BINARY = 'NB'
@@ -14,10 +20,8 @@ class Host(models.Model):
     #     (NON_BINARY, "Non-Binary"),
     #     (OTHER, "Other")
     # ]
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    
-    # gender = models.CharField(
+   
+   # gender = models.CharField(
     #     max_length=2,
     #     choices=GENDER_CHOICES,
     #     default=OTHER,
@@ -25,7 +29,7 @@ class Host(models.Model):
     # )
     # rating = models.IntegerField(blank=True, null=True)
     
-    # superhost = models.BooleanField(default=False)
+    # superhost = models.BooleanField(default=False) 
 
     def __str__(self) -> str:
         return f'{self.user.first_name}, {self.user.last_name}'

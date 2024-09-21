@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile_container0_2">
+  <form method='POST' enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="profile_info_container">
+        <div class="right-info">
+          <h1>Host Profile</h1>
+          <div class ="image_box_container">
+            <div class="image_box">
+              <img src="{{ user.host.host_pic.url }}">
+            </div>
+            <div class="edit_info_box">
+              <fieldset class="form-group">
+                  <div class="form">{{ hp_form }}</div>
+              </fieldset>
+              <button type="submit">Edit</button>
+          </div>
+          </div>
+        </div>
+          <div class="left-info">
+            <div class="left-info-left">
+              <h3>User Name</h3>
+              <h3>Name</h3>
+              <div class="edit_info_box">
+                <div class="input_field">  
+                  Hosting Years
+                </div>
+                <div class="input_field">  
+                  About
+                </div>
+                <br>
+              </div>
+            </div>
+            <div class="left-info-right">
+              <h3> {{ user.username }}</h3>
+              <h3> {{ user.first_name }} {{ user.last_name }}</h3>
+                <div class="edit_info_box">
+                    <fieldset class="form-group">
+                        <div class="form">{{ h_form }}</div>
+                    </fieldset>
+                    <div class="button_box">
+                      <button type="submit">Edit</button>
+                      <button type="submit">Edit</button>
+                    </div>      
+                </div>
+                  <br>
+                  <div class="input_field3"> 
+                    <a href="{% url 'host_profile' %}"><div class="button"> <p> Register</p> </div></a>
+                  </div>
+            </div>
+          </div>
+
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

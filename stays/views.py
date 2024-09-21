@@ -7,6 +7,14 @@ from .models import Stay, Host
 from bookings.forms import BookingForm
 from django.http import HttpResponseForbidden
 
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from .forms import HostRegiForm, HostProfileForm
+from django.contrib import messages
+from django import forms
+
 # List view for stays
 class StayListView(ListView):
     model = Stay
@@ -71,3 +79,30 @@ class HostDetailView(DetailView):
     model = Host
     template_name = 'stays/host_detail.html'
     context_object_name = 'host'
+
+# Host profile and edit
+@login_required
+def hostprofile(request):
+    if request.method == 'POST':
+        h_form = HostRegiForm(request.POST, instance=request.user.host)
+        hp_form = HostProfileForm(request.POST,
+                                    request.FILES,
+                                    instance=request.user.host)
+
+        if h_form.is_valid() and hp_form.is_valid():
+            h_form.save()
+            hp_form.save()
+            messages.success(request, f'Your profile has been updated!')
+            return redirect('host_profile')
+    
+    else:
+        h_form = HostRegiForm(instance=request.user.host)
+        hp_form = HostProfileForm(instance=request.user.host)
+    
+
+    context = {
+        'h_form': h_form,
+        'hp_form': hp_form
+    }
+
+    return render(request, 'stays/host_profile.html', context)
